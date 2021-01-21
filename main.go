@@ -9,29 +9,8 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-type MainHandler struct {
-	upgrader  websocket.Upgrader
-	clients   map[*websocket.Conn]int
-	broadcast chan ComplexMsg
-
-	channelsBroadcasts map[string](chan string)
-	channelsClients    map[string]map[*websocket.Conn]bool
-	clientInChannel    map[*websocket.Conn]string
-}
-
 var id int
 var mainHandler = MainHandler{}
-
-/*
-var id int
-var upgrader = websocket.Upgrader{}
-var clients = make(map[*websocket.Conn]int)
-var broadcast = make(chan ComplexMsg)
-
-var channelsBroadcasts = make(map[string](chan string))
-var channelsClients = make(map[string]map[*websocket.Conn]bool)
-var clientInChannel = make(map[*websocket.Conn]string)
-*/
 
 func index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Index")
