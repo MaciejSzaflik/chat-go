@@ -13,3 +13,13 @@ type MainHandler struct {
 	channelsClients    map[string]map[*websocket.Conn]bool
 	clientInChannel    map[*websocket.Conn]string
 }
+
+func (handler MainHandler) RemoveClient(client *websocket.Conn) {
+	delete(handler.clients, client)
+	channelName, ok := handler.clientInChannel[client]
+	if ok {
+		delete(handler.channelsClients[channelName], client)
+		delete(handler.clientInChannel, client)
+	}
+
+}

@@ -43,7 +43,8 @@ func HandleMessagesInChannel(channelChannel chan string, name string) {
 			if err != nil {
 				log.Printf("error: %v", err)
 				client.Close()
-				delete(mainHandler.clients, client) //do this better
+
+				mainHandler.RemoveClient(client) //this isnt safe?
 			}
 		}
 	}
@@ -55,7 +56,8 @@ func WriteToClient(client *websocket.Conn, msg string) {
 	if err != nil {
 		log.Printf("error: %v", err)
 		client.Close()
-		delete(mainHandler.clients, client) //do this better
+
+		mainHandler.RemoveClient(client)
 	}
 }
 
