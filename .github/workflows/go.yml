@@ -14,13 +14,8 @@ jobs:
       with:
         go-version: 1.16
         
-    - name: Staticcheck
-      run: |
-        pwd
-        echo ${GOPATH}
-        echo ${GOROOT}
-        GOBIN=$PWD/bin sudo go install honnef.co/go/tools/cmd/staticcheck
-        echo ${GOBIN}
-        cd ${GOROOT}/bin
-        ls
+    - name: Run static check
+      uses: honnef.co/go/tools/staticcheck@master
+      with:
+        args: ./...
       
