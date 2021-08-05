@@ -21,6 +21,6 @@ jobs:
         echo ${GOROOT}
         GOBIN=$PWD/bin sudo go install honnef.co/go/tools/cmd/staticcheck
         echo ${GOBIN}
-        cd ${GOBIN}/bin
+        cd ${GOBIN}/go
         ls
       
