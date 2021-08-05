@@ -22,6 +22,9 @@ jobs:
         
     - name: Staticcheck
       run: |
+        pwd
+        echo ${GOPATH}
+        echo ${GOROOT}
         GOBIN=$PWD/bin sudo go install honnef.co/go/tools/cmd/staticcheck
         ./bin/staticcheck  -f stylish ./...
       
