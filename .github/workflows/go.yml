@@ -19,6 +19,9 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+        
+    - name: Install
+      run: go install honnef.co/go/tools/cmd/staticcheck
     
     - name: Staticcheck
       run: staticcheck -f stylish ./...
