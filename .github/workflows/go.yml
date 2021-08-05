@@ -25,7 +25,6 @@ jobs:
         pwd
         echo ${GOPATH}
         echo ${GOROOT}
-        ${GOROOT}/staticcheck  -f stylish ./...
         cd ${GOROOT}
         ls
       
