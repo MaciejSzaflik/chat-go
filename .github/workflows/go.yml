@@ -25,6 +25,7 @@ jobs:
         pwd
         echo ${GOPATH}
         echo ${GOROOT}
-        cd ${GOROOT}
+        sudo go install honnef.co/go/tools/cmd/staticcheck
+        cd ${GOROOT}/bin
         ls
       
