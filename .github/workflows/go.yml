@@ -20,8 +20,8 @@ jobs:
     - name: Test
       run: go test -v ./...
         
-    - name: Install
-      run: sudo go install honnef.co/go/tools/cmd/staticcheck
-    
     - name: Staticcheck
-      run: /usr/runner/go/bin/staticcheck -f stylish ./...
+      run: |
+        GOBIN=$PWD/bin sudo go install honnef.co/go/tools/cmd/staticcheck
+        ./bin/staticcheck  -f stylish ./...
+      
